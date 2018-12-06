@@ -2,8 +2,10 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const port = process.env.PORT || 3001
+var cors = require('cors')
 const queries = require('./queries')
 
+app.use(cors())
 app.use(bodyParser.json())
 
 //FAVICON ROUTE
