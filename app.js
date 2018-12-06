@@ -23,7 +23,7 @@ app.get("/:id", function(req, res) {
 
 //POST ROUTE
 app.post('/', (req, res) => {
-    queries.createMovie(req.body).then(item => res.send("item"))
+    queries.createMovie(req.body).then(item => res.send(item))
 })
 
 //UPDATE ROUTE
