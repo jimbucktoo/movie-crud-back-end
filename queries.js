@@ -10,7 +10,7 @@ module.exports = {
         return db('movies').insert(item).returning('*')
     },
     updateMovie(id, updateMovie){
-        return db('movies').where("id", id).update(updateMovie).returning('*')
+        return db('movies').where('id', id).update(updateMovie).returning('*')
     },
     deleteMovie(id){
         return db('movies').where('id', id).delete()

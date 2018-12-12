@@ -9,6 +9,3 @@ const knex = require('knex')
 const connection = knex(configEnv)
 
 module.exports = connection
-
-
-
