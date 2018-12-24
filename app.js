@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3001
-var cors = require('cors')
+const cors = require('cors')
 const queries = require('./queries')
 
 app.use(cors())
@@ -42,13 +42,11 @@ app.delete('/', (req, res) => {
 })
 
 //ERROR ROUTE
-
 app.get('*', function(req, res) {
     res.send('Page Not Found: 404')
 })
 
 //HOSTING
-
 app.listen(port, function() {
     console.log('Serving on port 3001.')
 })
