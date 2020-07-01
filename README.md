@@ -1,6 +1,6 @@
 # movie-crud-back-end
 
-MovieCrud is a full stack application created that allows you to create movie reviews in a full crud application.
+MovieCrud is a full stack application created that allows users to create and share detailed movie reviews utilizing standardized crud routing schema.
 
 ## Links
 
