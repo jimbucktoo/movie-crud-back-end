@@ -39,5 +39,5 @@ app.get('*', function(req, res) {
 })
 
 app.listen(port, function() {
-    console.log('Serving on port 3001.')
+    console.log('Serving on port ' + port)
 })
