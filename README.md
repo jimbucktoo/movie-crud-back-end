@@ -19,7 +19,8 @@ What things you need to install the software and how to install them
 
 * [NPM](https://www.npmjs.com/) - npm is a package manager for the JavaScript programming language. It is the default package manager for the JavaScript runtime environment Node.js.
 * [Node.js](https://www.nodejs.org/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.
-* [Node-Postgres](https://node-postgres.com/) - Node-Postgres is a collection of node.js modules for interfacing with your PostgreSQL database.
+* [Knex CLI](https://knexjs.org/) - Knex.js is a SQL query builder for PostgreSQL.
+* [PostgreSQL CLI](https://www.postgresql.org/) - PostgreSQL is a an open source object-relational database system.
 
 ### Installing
 
@@ -31,36 +32,45 @@ A step by step series of examples that tell you how to get a development env run
 npm install
 ```
 
-2. Initialize server:
+2. Create local database
 
 ```
-npm start
+psql
+
+create database moviecrud
 ```
 
-3. Visit the following URL and you should see the data populate the page:
-
-```
-http://localhost:3000/
-```
-
-4. Migrate to the latest deployment:
+3. Migrate to the latest deployment:
 
 ```
 knex migrate:latest
 ```
 
-5. Run the seeds:
+4. Run the seeds:
 
 ```
 knex seed:run
 ```
 
+5. Intialize the server
+
+```
+npm start
+```
+
+6. Visit the following URL and you should see the data populate the page:
+
+```
+http://localhost:3000/
+```
+
 ## Technologies
 
 * [Express](https://expressjs.com/) - Express is a web application framework for Node.js. It is designed for building web applications and APIs.
-* [Node](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.
+* [Node.js](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.
 * [Knex](https://knexjs.org/) -  Knex.js is a "batteries included" SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift designed to be flexible, portable, and fun to use.
 * [Postgresql](https://postgresql.org/) - Postgresql is an object-relational database management system.
+* [Render](https://www.render.com/) - Render is a unified cloud to build and run all your apps and websites with free TLS certificates, global CDN, private networks and auto deploys from Git.
 
 ## Authors
 
