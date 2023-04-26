@@ -1,5 +1,5 @@
 const graphql = require ('graphql')
-const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLInt, GraphQLString, GraphQLID} = graphql
+const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull} = graphql
 const queries = require('../queries')
 
 const MovieType = new GraphQLObjectType({
@@ -25,7 +25,7 @@ const RootQuery = new GraphQLObjectType ({
         },
         movie: {
             type: MovieType,
-            args: { id: { type: GraphQLID }},
+            args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args){
                 return queries.getById(args.id).then(response => response)
             }
@@ -39,11 +39,11 @@ const Mutation = new GraphQLObjectType({
         addMovie: {
             type: MovieType,
             args: {
-                title: { type: GraphQLString },
-                directors: { type: GraphQLString },
-                year: { type: GraphQLInt },
-                rating: { type: GraphQLInt },
-                poster_url: { type: GraphQLString }
+                title: { type: new GraphQLNonNull(GraphQLString) },
+                directors: { type: new GraphQLNonNull(GraphQLString) },
+                year: { type: new GraphQLNonNull(GraphQLInt) },
+                rating: { type: new GraphQLNonNull(GraphQLInt) },
+                poster_url: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args){
                 let movie = new Object({
@@ -61,12 +61,12 @@ const Mutation = new GraphQLObjectType({
         updateMovie: {
             type: MovieType,
             args: {
-                id: { type: GraphQLID },
-                title: { type: GraphQLString },
-                directors: { type: GraphQLString },
-                year: { type: GraphQLInt },
-                rating: { type: GraphQLInt },
-                poster_url: { type: GraphQLString }
+                id: { type: new GraphQLNonNull(GraphQLID) },
+                title: { type: new GraphQLNonNull(GraphQLString) },
+                directors: { type: new GraphQLNonNull(GraphQLString) },
+                year: { type: new GraphQLNonNull(GraphQLInt) },
+                rating: { type: new GraphQLNonNull(GraphQLInt) },
+                poster_url: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args){
                 let movie = new Object({
@@ -85,7 +85,7 @@ const Mutation = new GraphQLObjectType({
         deleteMovie: {
             type: MovieType,
             args: {
-                id: { type: GraphQLID }
+                id: { type: new GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args){
                 return queries.deleteMovie(args.id).then(item => {
