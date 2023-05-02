@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const cors = require('cors')
 const queries = require('./queries')
 const { graphqlHTTP } = require('express-graphql');
