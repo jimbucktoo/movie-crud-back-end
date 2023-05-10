@@ -58,10 +58,10 @@ knex seed:run
 npm start
 ```
 
-6. Visit the following URL and you should see the data populate the page:
+6. Visit the following URL and you should see the GraphQL IDE populate the page:
 
 ```
-http://localhost:3001/
+http://localhost:3001/graphql
 ```
 
 ## Technologies
