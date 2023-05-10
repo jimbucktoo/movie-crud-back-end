@@ -61,7 +61,7 @@ npm start
 6. Visit the following URL and you should see the data populate the page:
 
 ```
-http://localhost:3000/
+http://localhost:3001/
 ```
 
 ## Technologies
