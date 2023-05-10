@@ -68,6 +68,7 @@ http://localhost:3000/
 
 * [Express](https://expressjs.com/) - Express is a web application framework for Node.js. It is designed for building web applications and APIs.
 * [Node.js](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.
+* [GraphQL](https://graphql.org/) - GraphQL is an open-source data query and manipulation language for APIs and a query runtime engine. 
 * [Knex](https://knexjs.org/) -  Knex.js is a "batteries included" SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift designed to be flexible, portable, and fun to use.
 * [Postgresql](https://postgresql.org/) - Postgresql is an object-relational database management system.
 * [Render](https://www.render.com/) - Render is a unified cloud to build and run all your apps and websites with free TLS certificates, global CDN, private networks and auto deploys from Git.
