@@ -14,7 +14,6 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true
 }))
 
-/*
 app.get('/favicon.ico', (req, res) => res.sendStatus(204))
 
 app.get('/', function(req, res) {
@@ -44,7 +43,6 @@ app.delete('/', (req, res) => {
 app.get('*', function(req, res) {
     res.send('Page Not Found: 404')
 })
-*/
 
 app.listen(port, function() {
     console.log('Serving on port ' + port)
