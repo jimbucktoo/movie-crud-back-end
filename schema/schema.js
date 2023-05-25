@@ -21,7 +21,8 @@ const MovieType = new GraphQLObjectType({
         directors: { type: GraphQLString },
         year: { type: GraphQLInt },
         rating: { type: GraphQLInt },
-        poster_url: { type: GraphQLString }
+        poster_url: { type: GraphQLString },
+        user_id: { type: GraphQLInt }
     })
 })
 
@@ -43,7 +44,7 @@ const RootQuery = new GraphQLObjectType ({
         },
         userAuth: {
             type: UserType,
-            args: { authId: { type: new GraphQLNonNull(GraphQLID) }},
+            args: { authId: { type: new GraphQLNonNull(GraphQLString) }},
             resolve(parent, args){
                 return queries.getUserByAuthId(args.authId).then(response => response)
             }
@@ -135,7 +136,8 @@ const Mutation = new GraphQLObjectType({
                 directors: { type: new GraphQLNonNull(GraphQLString) },
                 year: { type: new GraphQLNonNull(GraphQLInt) },
                 rating: { type: new GraphQLNonNull(GraphQLInt) },
-                poster_url: { type: new GraphQLNonNull(GraphQLString) }
+                poster_url: { type: new GraphQLNonNull(GraphQLString) },
+                user_id: { type: new GraphQLNonNull(GraphQLInt) }
             },
             resolve(parent, args){
                 let movie = new Object({
@@ -143,7 +145,8 @@ const Mutation = new GraphQLObjectType({
                     directors: args.directors,
                     year: args.year,
                     rating: args.rating,
-                    poster_url: args.poster_url
+                    poster_url: args.poster_url,
+                    user_id: args.user_id
                 })
                 return queries.createMovie(movie).then(item => {
                     return item[0]
