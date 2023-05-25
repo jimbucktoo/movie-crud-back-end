@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
         movie.integer('rating');
         movie.string('poster_url');
         movie.integer('user_id').unsigned().references('id').inTable('users');
+        movie.timestamps(false, true);
     });
 };
 
