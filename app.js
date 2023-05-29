@@ -42,8 +42,6 @@ app.delete('/users', (req, res) => {
     queries.deleteAllUsers().then(res.sendStatus(204))
 })
 
-//Movie Routes
-
 app.get('/movies', function(req, res) {
     queries.getAllMovies().then(response => res.send(response))
 })

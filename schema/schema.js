@@ -1,5 +1,4 @@
-const graphql = require ('graphql')
-const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull} = graphql
+const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull } = require('graphql');
 const queries = require('../queries')
 
 const UserType = new GraphQLObjectType({
@@ -35,14 +34,14 @@ const RootQuery = new GraphQLObjectType ({
                 return queries.getAllUsers().then(response => response)
             }
         },
-        user: {
+        userById: {
             type: UserType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args){
                 return queries.getUserById(args.id).then(response => response)
             }
         },
-        userAuth: {
+        userByAuthId: {
             type: UserType,
             args: { authId: { type: new GraphQLNonNull(GraphQLString) }},
             resolve(parent, args){
@@ -55,7 +54,14 @@ const RootQuery = new GraphQLObjectType ({
                 return queries.getAllMovies().then(response => response)
             }
         },
-        movie: {
+        moviesByUserId: {
+            type: new GraphQLList(MovieType),
+            args: { id: { type: new GraphQLNonNull(GraphQLID) }},
+            resolve(parent, args){
+                return queries.getMoviesByUserId(args.id).then(response => response)
+            }
+        },
+        movieById: {
             type: MovieType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args){

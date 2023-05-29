@@ -24,6 +24,9 @@ module.exports = {
     getAllMovies(){
         return db.select().from('movies')
     },
+    getMoviesByUserId(id) {
+        return db.select().from('movies').where('user_id', id)
+    },
     getMovieById(id){
         return db('movies').where('id', id).first()
     },
