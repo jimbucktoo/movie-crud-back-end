@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT || 3001
 const cors = require('cors')
 const queries = require('./queries')
-const { graphqlHTTP } = require('express-graphql');
+const { graphqlHTTP } = require('express-graphql')
 const schema = require ('./schema/schema')
 
 app.use(cors())
@@ -13,8 +13,6 @@ app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }))
-
-//User Routes
 
 app.get('/favicon.ico', (req, res) => res.sendStatus(204))
 

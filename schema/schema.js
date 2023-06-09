@@ -1,4 +1,4 @@
-const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull } = require('graphql');
+const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull } = require('graphql')
 const queries = require('../queries')
 
 const UserType = new GraphQLObjectType({
