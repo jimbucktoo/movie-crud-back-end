@@ -8,8 +8,8 @@ exports.up = function(knex, Promise) {
         movie.string('poster_url')
         movie.integer('user_id').unsigned().references('id').inTable('users')
         movie.timestamps(false, true)
-    });
-};
+    })
+}
 
 exports.down = function(knex, Promise) {
     return knex.schema.dropTableIfExists('movies')

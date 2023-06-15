@@ -1,7 +1,7 @@
 exports.seed = async function(knex) {
-    await knex('movies').del();
+    await knex('movies').del()
 
-    const userIds = await knex('users').pluck('id');
+    const userIds = await knex('users').pluck('id')
     //await knex('movies').insert([
     //{ id: 1, title: 'Spirited Away', directors: 'Hayao Miyazaki', year: 2002, rating: 5, poster_url: 'https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg', user_id: userIds[0] },
     //{ id: 2, title: 'John Wick: Chapter 4', directors: 'Chad Stahelski', year: 2023, rating: 3, poster_url: 'https://assets-prd.ignimgs.com/2023/02/08/jw4-2025x3000-online-character-1sht-keanu-v187-1675886090936.jpg', user_id: userIds[1] },
@@ -13,5 +13,5 @@ exports.seed = async function(knex) {
     //{ id: 8, title: 'Akira', directors: 'Katsuhiro Otomo', year: 1988, rating: 1, poster_url: 'https://m.media-amazon.com/images/M/MV5BNjFmNWYzZjMtYWIyZi00NDVmLWIxY2EtN2RiMjZiMDk4MzcyXkEyXkFqcGdeQXVyMTg2NjYzOA@@._V1_FMjpg_UX1000_.jpg', user_id: userIds[0] },
     //{ id: 9, title: 'Fantastic Beasts: The Secrets of Dumbledore', directors: 'David Yates', year: 2022, rating: 3, poster_url: 'https://m.media-amazon.com/images/M/MV5BZGQ1NjQyNDMtNzFlZS00ZGIzLTliMWUtNGJkMGMzNTBjNDg0XkEyXkFqcGdeQXVyMTE1NDI5MDQx._V1_FMjpg_UX1000_.jpg', user_id: userIds[1] },
     //{ id: 10, title: 'Demon Slayer: Kimetsu no Yaiba Swordsmith Village Arc', directors: 'Haruo Sotozaki', year: 2023, rating: 5, poster_url: 'https://m.media-amazon.com/images/M/MV5BZDZiZTZhMzgtYTY0ZC00OGUyLWE2NzgtMmM4MjA1YjUxN2YyXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg', user_id: userIds[0] }
-//]);
-};
+//])
+}
