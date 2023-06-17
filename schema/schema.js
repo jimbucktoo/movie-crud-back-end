@@ -2,7 +2,7 @@ const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString,
 const queries = require('../queries')
 const jwt = require('jsonwebtoken')
 
-const SECRET_KEY = 'secret_key'
+const SECRET_KEY = 'SECRETKEY'
 
 async function authenticateUser(authId, username, email, picture) {
     const existingUser = await queries.getUserByAuthId(authId)
@@ -97,20 +97,20 @@ const RootQuery = new GraphQLObjectType({
                 return queries.getAllMovies().then(response => response)
             }
         },
-        moviesByUserId: {
-            type: new GraphQLList(MovieType),
-            args: { id: { type: new GraphQLNonNull(GraphQLID) }},
-            resolve(parent, args, context){
-                const decoded = verifyToken(context.headers.authorization)
-                return queries.getMoviesByUserId(args.id).then(response => response)
-            }
-        },
         movieById: {
             type: MovieType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args, context){
                 const decoded = verifyToken(context.headers.authorization)
                 return queries.getMovieById(args.id).then(response => response)
+            }
+        },
+        moviesByUserId: {
+            type: new GraphQLList(MovieType),
+            args: { id: { type: new GraphQLNonNull(GraphQLID) }},
+            resolve(parent, args, context){
+                const decoded = verifyToken(context.headers.authorization)
+                return queries.getMoviesByUserId(args.id).then(response => response)
             }
         }
     }
@@ -155,6 +155,7 @@ const Mutation = new GraphQLObjectType({
                 picture: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args, context){
+                const decoded = verifyToken(context.headers.authorization)
                 let user = {
                     id: args.id,
                     authId: args.authId,
@@ -173,6 +174,7 @@ const Mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args, context){
+                const decoded = verifyToken(context.headers.authorization)
                 return queries.deleteUser(args.id).then(item => {
                     return item[0]
                 })
@@ -181,6 +183,7 @@ const Mutation = new GraphQLObjectType({
         deleteAllUsers: {
             type: new GraphQLList(UserType),
             resolve(parent, args, context){
+                const decoded = verifyToken(context.headers.authorization)
                 return queries.deleteAllUsers().then(items => {
                     return items
                 })
