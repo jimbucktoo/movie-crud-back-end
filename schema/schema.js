@@ -1,8 +1,8 @@
 const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLID, GraphQLString, GraphQLInt, GraphQLNonNull } = require('graphql')
 const queries = require('../queries')
 const jwt = require('jsonwebtoken')
-
-const SECRET_KEY = 'SECRETKEY'
+require('dotenv').config()
+const SECRET_KEY = process.env.SECRET_KEY
 
 async function authenticateUser(authId, username, email, picture) {
     const existingUser = await queries.getUserByAuthId(authId)
