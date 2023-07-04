@@ -6,6 +6,18 @@ const cors = require('cors')
 const queries = require('./queries')
 const { graphqlHTTP } = require('express-graphql')
 const schema = require ('./schema/schema')
+const cron = require('node-cron')
+const axios = require('axios')
+
+cron.schedule('*/1 * * * *', () => {
+    axios.get('https://moviecrud.onrender.com/')
+        .then((response) => {
+            console.log('Server Awake')
+        })
+        .catch((error) => {
+            console.error('Error Keeping Server Awake: ', error)
+        })
+})
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -15,6 +27,10 @@ app.use('/graphql', graphqlHTTP({
 }))
 
 app.get('/favicon.ico', (req, res) => res.sendStatus(204))
+
+app.get('/', function(req, res) {
+    res.send("MovieCrud Server")
+})
 
 app.get('/users', function(req, res) {
     queries.getAllUsers().then(response => res.send(response))
