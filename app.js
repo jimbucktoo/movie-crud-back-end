@@ -9,7 +9,7 @@ const schema = require ('./schema/schema')
 const cron = require('node-cron')
 const axios = require('axios')
 
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('*/10 * * * *', () => {
     axios.get('https://moviecrud.onrender.com/')
         .then((response) => {
             console.log('Server Awake')
