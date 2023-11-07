@@ -93,7 +93,6 @@ const RootQuery = new GraphQLObjectType({
         movies: {
             type: new GraphQLList(MovieType),
             resolve(parent, args, context) {
-                const decoded = verifyToken(context.headers.authorization)
                 return queries.getAllMovies().then(response => response)
             }
         },
@@ -101,7 +100,6 @@ const RootQuery = new GraphQLObjectType({
             type: MovieType,
             args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args, context){
-                const decoded = verifyToken(context.headers.authorization)
                 return queries.getMovieById(args.id).then(response => response)
             }
         },
@@ -109,7 +107,6 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(MovieType),
             args: { id: { type: new GraphQLNonNull(GraphQLID) }},
             resolve(parent, args, context){
-                const decoded = verifyToken(context.headers.authorization)
                 return queries.getMoviesByUserId(args.id).then(response => response)
             }
         }
