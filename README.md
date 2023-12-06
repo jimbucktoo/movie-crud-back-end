@@ -61,7 +61,7 @@ npm start
 6. Visit the following URL and you should see the GraphQL IDE populate the page:
 
 ```
-http://localhost:3001/graphql
+http://localhost:5000/graphql
 ```
 
 ## Technologies
